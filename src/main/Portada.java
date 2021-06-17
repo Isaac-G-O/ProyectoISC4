@@ -102,7 +102,7 @@ public class Portada extends javax.swing.JFrame {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            //new Login().setVisible(true);
+            new Login().setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_formKeyPressed
