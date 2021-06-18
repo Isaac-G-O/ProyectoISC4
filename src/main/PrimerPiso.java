@@ -429,7 +429,7 @@ public class PrimerPiso extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSegundoPisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSegundoPisoActionPerformed
-        //new SegundoPiso(conn).setVisible(true);
+        new SegundoPiso(conn).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSegundoPisoActionPerformed
 

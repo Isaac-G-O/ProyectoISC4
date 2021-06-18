@@ -1,5 +1,5 @@
 
-package clases;
+package main;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,6 +10,7 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
+import main.Consultas;
 import mySqlConn.MySqlConn;
 
 
@@ -18,14 +19,6 @@ public class MenuConsultas extends javax.swing.JFrame {
     MySqlConn conn;
     private String piso,numHab,nombre;
     private boolean ok;
-    private int habPiso1[] = {101,102,103,104,105,106,107,108,109,110,111,112,113,114,115};
-    private int habPiso2[] = {201,202,203,204,205,206,207,208,209,210,211,212,213,214,215};
-    private String tipoHab[];
-    private String piso1[] = {"Triple","Doble","Sencilla","Sencilla","Sencilla","Sencilla","Sencilla","Sencilla","Sencilla",
-                                "Triple","Triple","Doble","Doble","Doble","Doble"};
-    private String piso2[] = {"Triple","Sencilla","Doble","Sencilla","Sencilla","Sencilla","Sencilla","Sencilla","Doble",
-                                "Doble","Doble","Triple","Triple","Triple","Triple"};
-    private ArrayList lista;
     
     public MenuConsultas(MySqlConn conn){
         this.conn = conn;
@@ -45,7 +38,7 @@ public class MenuConsultas extends javax.swing.JFrame {
             @Override
             public void stateChanged(ChangeEvent ce) {
                 int indice = jTabbedPane1.getSelectedIndex();
-                //Consulta1 esta en indice 0
+                
                 System.out.println(indice);
                 if(indice == 2){
                     huespedes();
@@ -99,268 +92,24 @@ public class MenuConsultas extends javax.swing.JFrame {
             this.jTextFieldNombre.setText("");
         }
     }
-    
     private void obtenerDatos2(){
-    }
-    
-    private void checar(int piso){
-        int aux=0;
-        boolean okey = true;
-        int s=0,d=s,t=s;
-        int x=0,y=0;
-        if(lista.isEmpty()){
-            if(piso == 1){
-                if(s == 0)
-                    s = 7;
-                if(d == 0)
-                    d = 5;
-                if(t == 0)
-                    t = 3;
-            }else if(piso == 2){
-                if(s == 0)
-                    s = 6;
-                if(d == 0)
-                    d = 4;
-                if(t == 0)
-                    t = 5;
-            }   
-            int sencillas[] = new int[s];
-            int dobles[] = new int[d];
-            int triples[] = new int[t];
-            String tipo;
-            x = 0;
-            int z = y = x;
-            
-            int disponibles[] = new int[habPiso1.length];
-            String tipoDis[] = new String[habPiso1.length];
-            if(piso == 1){
-                disponibles = habPiso1;
-                tipoDis = piso1;
-            }else if(piso == 2){
-                disponibles = habPiso2;
-                tipoHab = piso2;
-            }
-              
-            for (int i = 0; i < tipoDis.length; i++) {
-                tipo  = tipoDis[i];
-                switch(tipo){
-                    case "Sencilla":
-                        sencillas[x] = disponibles[i];
-                        x++;
-                        break;
-                    case "Doble":
-                        dobles[y] = disponibles[i];
-                        y++;
-                        break;
-                    case "Triple":
-                        triples[z] = disponibles[i];
-                        z++;
-                        break;
-                }
-            }
-        }else{
-            int disponibles[] = new int[habPiso1.length-lista.size()];
-            String tipoDis[] = new String[habPiso1.length-lista.size()];
-            Collections.sort( lista );
-            Iterator<Integer> it = lista.iterator();
-            switch(piso){
-                case 1:
-                    while(it.hasNext()){
-                        if(okey){
-                            aux = it.next();
-                            if(aux == habPiso1[x]){
-                                x++;
-                                okey = true;
-                            }else{
-                                okey = false;
-                                disponibles[y] = habPiso1[x];
-                                tipoDis[y] = piso1[x];
-                                switch(tipoDis[y]){
-                                    case "Sencilla":
-                                        s++;
-                                        break;
-                                    case "Doble":
-                                        d++;
-                                        break;
-                                    case "Triple":
-                                        t++;
-                                        break;
-                                }
-                                y++;
-                                x++;
-                            }
-                        }else{
-                            if(aux == habPiso1[x]){
-                                x++;
-                                okey = true;
-                            }else{
-                                okey = false;
-                                disponibles[y] = habPiso1[x];
-                                tipoDis[y] = piso1[x];
-                                switch(tipoDis[y]){
-                                    case "Sencilla":
-                                        s++;
-                                        break;
-                                    case "Doble":
-                                        d++;
-                                        break;
-                                    case "Triple":
-                                        t++;
-                                        break;
-                                }
-                                y++;
-                                x++;
-                            }
-                        }
-                    }
-                    break;
-                case 2:
-                    System.out.println("entre 2");
-                    if(lista.isEmpty())
-
-                    while(it.hasNext()){
-                        if(okey){
-                            aux = it.next();
-                            if(aux == habPiso2[x]){
-                                x++;
-                                okey = true;
-                            }else{
-                                okey = false;
-                                disponibles[y] = habPiso2[x];
-                                tipoDis[y] = piso2[x];
-                                switch(tipoDis[y]){
-                                    case "Sencilla":
-                                        s++;
-                                        break;
-                                    case "Doble":
-                                        d++;
-                                        break;
-                                    case "Triple":
-                                        t++;
-                                        break;
-                                }
-                                y++;
-                                x++;
-                            }
-                        }else{
-                            if(aux == habPiso2[x]){
-                                x++;
-                                okey = true;
-                            }else{
-                                okey = false;
-                                disponibles[y] = habPiso2[x];
-                                tipoDis[y] = piso2[x];
-                                switch(tipoDis[y]){
-                                    case "Sencilla":
-                                        s++;
-                                        break;
-                                    case "Doble":
-                                        d++;
-                                        break;
-                                    case "Triple":
-                                        t++;
-                                        break;
-                                }
-                                y++;
-                                x++;
-                            }
-                        }
-                    }
-                    break;
-            }
-            if(piso == 1){
-                if(s == 0){
-                    s = 7;
-                    disponibles = habPiso1;
-                    tipoHab = piso1;
-                }    
-                if(d == 0){
-                    d = 5;
-                    disponibles = habPiso1;
-                    tipoHab = piso1;
-                }
-                if(t == 0){
-                    t = 3;
-                    disponibles = habPiso1;
-                    tipoHab = piso1;
-                }
-            }else if(piso == 2){
-                if(s == 0){
-                    s = 6;
-                    disponibles = habPiso2;
-                    tipoHab = piso2;
-                }
-                if(d == 0){
-                    d = 4;
-                    disponibles = habPiso2;
-                    tipoHab = piso2;
-                }
-                if(t == 0){
-                    t = 5;
-                    disponibles = habPiso2;
-                    tipoHab = piso2;
-                }
-            }
-
-            System.out.println("s = "+s);
-            System.out.println("d = "+d);
-            System.out.println("t = "+t);
-            int sencillas[] = new int[s];
-            int dobles[] = new int[d];
-            int triples[] = new int[t];
-            String tipo;
-            x = 0;
-            int z = y = x;
-
-            for (int i = 0; i < tipoDis.length; i++) {
-                tipo  = tipoDis[i];
-                switch(tipo){
-                    case "Sencilla":
-                        sencillas[x] = disponibles[i];
-                        x++;
-                        break;
-                    case "Doble":
-                        dobles[y] = disponibles[i];
-                        y++;
-                        break;
-                    case "Triple":
-                        triples[z] = disponibles[i];
-                        z++;
-                        break;
-                }
-            }
-        }
-    }
-    
-    private void obtenerHab(int piso){
-        String query = "select * from huesped where piso = " + "'" + piso + "'";
+        numHab = this.jTextFieldNumHab.getText().trim();
+        int numh = Integer.valueOf(numHab);
+        String query = "select * from huesped where numhab = " + "'" + numHab + "'";
         this.conn.Consult(query);
-        int n = 0;
         try{
-            this.conn.rs.last();
-            n = this.conn.rs.getRow();
-            this.conn.rs.first();
-        }catch(Exception e){
-            System.out.println("Error "+e);
+            ok = true;
+            nombre = this.conn.rs.getString(1);
+        } catch(SQLException ex){
+            ok = false;
+            if(numh >= 101 && numh <= 115 || numh >= 201 && numh <= 215){
+                JOptionPane.showMessageDialog(this, "Habitación Desocupada...");
+            }else
+                JOptionPane.showMessageDialog(this, "Habitación no incluida en el Hotel");
+            this.jTextFieldNumHab.setText("");
         }
-        if(n != 0){
-            tipoHab = new String[n];
-            lista = new ArrayList<>();
-            int aux[] = new int[n];
-            for (int i = 0; i < n; i++) {//n total de registros
-                try{
-                    tipoHab[i] = this.conn.rs.getString(2);
-                    aux[i] = this.conn.rs.getInt(9);
-                    lista.add(aux[i]);
-                    
-                    this.conn.rs.next();
-                }catch(Exception e){
-                    System.out.println("Error "+e);
-                }
-            }
-        }else
-            checar(piso);
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -596,7 +345,7 @@ public class MenuConsultas extends javax.swing.JFrame {
         obtenerDatos();
         String espacio = "      ";
         if(ok)
-        this.jTextAreaDatos.setText("\n\n"+espacio+espacio+nombre+" habitación "+numHab+" piso "+piso);
+            this.jTextAreaDatos.setText("\n\n"+espacio+espacio+nombre+" habitación "+numHab+" piso "+piso);
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -613,7 +362,7 @@ public class MenuConsultas extends javax.swing.JFrame {
         obtenerDatos2();
         String espacio = "      ";
         if(ok)
-        this.jTextAreaDatos2.setText("\n\n"+espacio+espacio+nombre);
+            this.jTextAreaDatos2.setText("\n\n"+espacio+espacio+nombre);
     }//GEN-LAST:event_jButtonConsultar2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

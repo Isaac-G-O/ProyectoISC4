@@ -1,5 +1,5 @@
 
-package clases;
+package main;
 
 import java.sql.SQLException;
 import javax.swing.JOptionPane;

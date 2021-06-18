@@ -132,10 +132,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButtonRegistroMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistroMouseReleased
         new Registro(objConn).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonRegistroMouseReleased
 
     private void jButtonSalidaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalidaMouseReleased
         new Salida(objConn).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonSalidaMouseReleased
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -144,7 +146,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultasActionPerformed
-        //new Consultas(objConn).setVisible(true);
+        new Consultas(objConn).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonConsultasActionPerformed
 
     public static void main(String args[]) {

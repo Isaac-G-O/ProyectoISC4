@@ -1,4 +1,4 @@
-package clases;
+package main;
 
 
 import java.util.ArrayList;
@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+import main.PrimerPiso;
+import main.Registro;
 import mySqlConn.MySqlConn;
 
 

@@ -193,7 +193,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButtonContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContinuarActionPerformed
         music.stop();
-        //new Menu().setVisible(true);
+        new Menu().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonContinuarActionPerformed
 

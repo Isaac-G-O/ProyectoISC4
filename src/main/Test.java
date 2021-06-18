@@ -2,12 +2,12 @@
 package main;
 
 
-public class test {
-    public test(){
+public class Test {
+    public Test(){
         new Portada().setVisible(true);
     }
     
     public static void main(String[] args) {
-        new test();
+        new Test();
     }
 }

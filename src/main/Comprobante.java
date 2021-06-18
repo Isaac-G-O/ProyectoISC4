@@ -1,5 +1,5 @@
 
-package clases;
+package main;
 
 import java.awt.event.KeyEvent;
 import javax.swing.WindowConstants;

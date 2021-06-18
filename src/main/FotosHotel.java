@@ -294,7 +294,7 @@ public class FotosHotel extends javax.swing.JFrame {
         music.stop();
         this.dispose();
         this.setVisible(false);
-        //new Consultas(conn).setVisible(true);
+        new Consultas(conn).setVisible(true);
     }//GEN-LAST:event_jButtonTerminarActionPerformed
 
     /**

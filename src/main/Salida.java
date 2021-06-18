@@ -419,11 +419,11 @@ public class Salida extends javax.swing.JFrame {
             Paragraph parrafo1 = new Paragraph();
             parrafo1.setAlignment(Paragraph.ALIGN_LEFT);
             parrafo1.setFont(FontFactory.getFont("Arial",14,Font.ITALIC,BaseColor.BLACK));
-            //parrafo1.add("  "+Date+"\n\n");
+
             parrafo1.setAlignment(Paragraph.ALIGN_LEFT);
             parrafo1.setFont(FontFactory.getFont("Verdana",14,Font.BOLDITALIC,BaseColor.BLACK));
             parrafo1.setAlignment(Paragraph.ALIGN_LEFT);
-            //parrafo1.add("Dirección: \n");
+
             parrafo1.setAlignment(Paragraph.ALIGN_LEFT);
             
             Paragraph parrafo2 = new Paragraph();

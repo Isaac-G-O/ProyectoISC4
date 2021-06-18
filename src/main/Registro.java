@@ -1,7 +1,6 @@
 
 package main;
 
-import clases.Comprobante;
 import com.toedter.calendar.JDateChooser;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
