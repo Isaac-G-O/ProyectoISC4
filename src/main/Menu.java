@@ -131,11 +131,11 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistroMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistroMouseReleased
-        //new Registro(objConn).setVisible(true);
+        new Registro(objConn).setVisible(true);
     }//GEN-LAST:event_jButtonRegistroMouseReleased
 
     private void jButtonSalidaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalidaMouseReleased
-        //new Salida(objConn).setVisible(true);
+        new Salida(objConn).setVisible(true);
     }//GEN-LAST:event_jButtonSalidaMouseReleased
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
